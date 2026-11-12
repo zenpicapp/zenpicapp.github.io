@@ -2,78 +2,328 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="referrer" content="no-referrer">
-<title>ZenPic · 淘片</title>
-<style>
-:root {
-  color-scheme: light dark;
-  --background: #f8f6f1;
-  --text: #252720;
-  --secondary: #62675d;
-  --border: #d9dccf;
-  --link: #3a623d;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #171a16;
-    --text: #eceee7;
-    --secondary: #b3bcaa;
-    --border: #3a4335;
-    --link: #b6d29d;
-  }
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--text);
-  font-family: system-ui, sans-serif;
-  line-height: 1.65;
-  overflow-wrap: anywhere;
-}
-main {
-  width: min(100%, 720px);
-  margin: 0 auto;
-  padding: clamp(32px, 8vw, 104px) 20px 48px;
-}
-h1 {
-  font-size: clamp(2.25rem, 7vw, 3.75rem);
-  line-height: 1.15;
-  margin: 0 0 20px;
-}
-p { margin: 0 0 10px; }
-.intro { font-size: clamp(1.1rem, 2.5vw, 1.25rem); }
-.availability { margin-top: 22px; color: var(--secondary); }
-.availability span { display: block; }
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 22px;
-  margin-top: 26px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-}
-@media (max-width: 420px) {
-  nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-a { color: var(--link); text-underline-offset: 3px; }
-.contact { margin-top: 16px; }
-</style>
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#E9EEF2">
+<meta name="apple-itunes-app" content="app-id=6829452527">
+<title>ZenPic: Photo Cleaner · Swipe, Sort, Clear the Clutter</title>
+<meta name="description" content="ZenPic is an iPhone photo cleaner. It turns a huge camera roll into small batches you can swipe through in minutes, and finds duplicates, similar shots, screenshots and large videos. Sorting and analysis run on your iPhone.">
+<link rel="icon" href="assets/img/icon-64.png">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>
+/* 系统语言是中文、又没有点名要英文时，去中文页 */
+try{if(/^zh/i.test(navigator.language||'')&&!/[?&]en\b/.test(location.search))location.replace('zh/index.html')}catch(e){}
+document.documentElement.className='js'
+</script>
 </head>
 <body>
+
+<svg id="fx" aria-hidden="true"><path id="fxp" fill="#FF5A36"/></svg>
+<div class="rail" id="rail" aria-hidden="true"></div>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/img/icon-64.png" alt="" width="32" height="32">ZenPic</a>
+    <a class="btn s" href="https://apps.apple.com/app/id6829452527">Download</a>
+  </div>
+</header>
+
 <main>
-  <h1>ZenPic <span lang="zh-Hans">淘片</span></h1>
-  <p class="intro">Sort photos, organize albums and make room on your iPhone. Photo analysis happens on your device.</p>
-  <p class="intro" lang="zh-Hans">整理照片、归类相簿，给 iPhone 腾出空间。照片分析在手机上完成。</p>
-  <p class="availability">Coming to the App Store. <span lang="zh-Hans">即将在 App Store 上架。</span></p>
-  <nav aria-label="Privacy and support">
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/support/">Support</a>
-    <a href="/zh/privacy/" lang="zh-Hans">隐私政策</a>
-    <a href="/zh/support/" lang="zh-Hans">技术支持</a>
-  </nav>
-  <p class="contact"><a href="mailto:61073198@qq.com">61073198@qq.com</a></p>
+
+<!-- 第一屏 -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="brand"><img src="assets/img/icon-64.png" alt="ZenPic icon" width="32" height="32">ZenPic</span>
+      <span class="r"><a class="lang" href="zh/index.html" lang="zh-Hans">中文</a><a class="btn s" href="https://apps.apple.com/app/id6829452527">Download</a></span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <p class="cap">ZenPic · Photo Cleaner</p>
+        <h1><span>Swipe, sort,</span><span>clear the clutter</span></h1>
+        <p class="sub"><strong>However many photos you have, you can get through them.</strong> ZenPic turns your camera roll into small batches you can finish in a few minutes. Stop whenever you like and pick up right where you left off.</p>
+        <div class="cta">
+          <a class="btn" href="https://apps.apple.com/app/id6829452527">Download on the App Store
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+          <small>Search “ZenPic: Photo Cleaner” on the App Store<br>Requires an iPhone with iOS 18 or later</small>
+        </div>
+        <div class="qr">
+          <div class="code"><svg viewBox="0 0 29 29" role="img" aria-label="QR code for the App Store page" shape-rendering="crispEdges"><path fill="#0A0C0F" d="M0 0h7v1h-7zM9 0h2v1h-2zM14 0h1v1h-1zM17 0h4v1h-4zM22 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h2v1h-2zM13 1h1v1h-1zM18 1h3v1h-3zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM10 2h3v1h-3zM15 2h1v1h-1zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM9 3h1v1h-1zM13 3h1v1h-1zM18 3h1v1h-1zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h1v1h-1zM11 4h3v1h-3zM16 4h1v1h-1zM18 4h2v1h-2zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM14 5h4v1h-4zM19 5h2v1h-2zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM9 7h1v1h-1zM12 7h1v1h-1zM16 7h3v1h-3zM20 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM9 8h3v1h-3zM16 8h2v1h-2zM19 8h2v1h-2zM24 8h1v1h-1zM27 8h1v1h-1zM0 9h1v1h-1zM2 9h2v1h-2zM5 9h1v1h-1zM7 9h1v1h-1zM11 9h3v1h-3zM15 9h4v1h-4zM20 9h4v1h-4zM25 9h1v1h-1zM28 9h1v1h-1zM0 10h1v1h-1zM2 10h7v1h-7zM10 10h2v1h-2zM14 10h2v1h-2zM18 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM26 10h3v1h-3zM2 11h1v1h-1zM4 11h1v1h-1zM10 11h1v1h-1zM13 11h2v1h-2zM16 11h2v1h-2zM21 11h3v1h-3zM27 11h1v1h-1zM1 12h1v1h-1zM3 12h5v1h-5zM9 12h2v1h-2zM14 12h4v1h-4zM20 12h4v1h-4zM25 12h1v1h-1zM27 12h2v1h-2zM0 13h1v1h-1zM2 13h1v1h-1zM4 13h1v1h-1zM8 13h5v1h-5zM14 13h5v1h-5zM20 13h3v1h-3zM25 13h1v1h-1zM28 13h1v1h-1zM0 14h3v1h-3zM6 14h1v1h-1zM8 14h2v1h-2zM11 14h1v1h-1zM13 14h1v1h-1zM16 14h1v1h-1zM18 14h1v1h-1zM20 14h1v1h-1zM22 14h1v1h-1zM24 14h2v1h-2zM27 14h2v1h-2zM7 15h3v1h-3zM15 15h3v1h-3zM20 15h1v1h-1zM23 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM0 16h2v1h-2zM3 16h2v1h-2zM6 16h1v1h-1zM9 16h4v1h-4zM15 16h9v1h-9zM25 16h1v1h-1zM27 16h2v1h-2zM4 17h1v1h-1zM8 17h6v1h-6zM16 17h1v1h-1zM22 17h1v1h-1zM25 17h2v1h-2zM28 17h1v1h-1zM0 18h1v1h-1zM3 18h1v1h-1zM6 18h2v1h-2zM10 18h1v1h-1zM14 18h4v1h-4zM22 18h1v1h-1zM24 18h1v1h-1zM27 18h2v1h-2zM1 19h1v1h-1zM4 19h2v1h-2zM7 19h2v1h-2zM11 19h1v1h-1zM13 19h2v1h-2zM17 19h5v1h-5zM23 19h1v1h-1zM25 19h1v1h-1zM27 19h1v1h-1zM0 20h1v1h-1zM2 20h2v1h-2zM5 20h2v1h-2zM10 20h1v1h-1zM12 20h1v1h-1zM14 20h4v1h-4zM20 20h5v1h-5zM8 21h1v1h-1zM14 21h1v1h-1zM19 21h2v1h-2zM24 21h1v1h-1zM26 21h3v1h-3zM0 22h7v1h-7zM11 22h1v1h-1zM13 22h1v1h-1zM15 22h2v1h-2zM18 22h3v1h-3zM22 22h1v1h-1zM24 22h2v1h-2zM27 22h2v1h-2zM0 23h1v1h-1zM6 23h1v1h-1zM12 23h1v1h-1zM17 23h2v1h-2zM20 23h1v1h-1zM24 23h2v1h-2zM0 24h1v1h-1zM2 24h3v1h-3zM6 24h1v1h-1zM8 24h1v1h-1zM10 24h1v1h-1zM15 24h3v1h-3zM20 24h5v1h-5zM27 24h1v1h-1zM0 25h1v1h-1zM2 25h3v1h-3zM6 25h1v1h-1zM9 25h1v1h-1zM11 25h1v1h-1zM13 25h1v1h-1zM17 25h1v1h-1zM19 25h1v1h-1zM24 25h1v1h-1zM26 25h1v1h-1zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h1v1h-1zM8 26h1v1h-1zM12 26h3v1h-3zM16 26h1v1h-1zM19 26h1v1h-1zM21 26h1v1h-1zM23 26h3v1h-3zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM15 27h1v1h-1zM17 27h1v1h-1zM19 27h3v1h-3zM27 27h1v1h-1zM0 28h7v1h-7zM8 28h2v1h-2zM12 28h1v1h-1zM14 28h1v1h-1zM18 28h3v1h-3zM22 28h1v1h-1zM24 28h1v1h-1zM27 28h2v1h-2z"/></svg><span class="vf"><i></i><i></i><i></i><i></i></span></div>
+          <p><b>Scan with your iPhone camera</b>It opens the App Store page</p>
+        </div>
+      </div>
+      <div class="pile" aria-hidden="true">
+        <div class="st p5" style="--i:0"><img src="assets/img/p-coast.jpg" alt=""></div>
+        <div class="st p3" style="--i:1"><img src="assets/img/p-cat.jpg" alt=""></div>
+        <div class="st p2" style="--i:2"><img src="assets/img/p-lake2.jpg" alt=""></div>
+        <div class="st p4" style="--i:3"><img src="assets/img/p-food.jpg" alt=""></div>
+        <div class="st sq p7" style="--i:4"><img src="assets/img/t-receipt-en.jpg" alt=""></div>
+        <div class="st p1" style="--i:5"><img src="assets/img/p-lake.jpg" alt=""></div>
+        <div class="st sq p6" style="--i:6"><img src="assets/img/p-note.jpg" alt=""></div>
+        <span class="vf"><i></i><i></i><i></i><i></i></span>
+        <span class="tag tag1 anchor" id="a-tile" data-shape="tile"><em>✓</em></span>
+        <span class="tag tag4 tl">✕</span>
+        <span class="tag tag2 lb chip"><span><b>Similar · pick one</b><i>SIMILAR</i></span></span>
+        <span class="tag tag3 lb chip"><span><b>Documents · make a PDF</b><i>DOCUMENT</i></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 滑着理 -->
+<section class="sec swipe" id="s1" data-n="01">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="cap">01 · Swipe to sort</p>
+      <h2>One swipe: keep or toss</h2>
+      <p>Pick a month, an album, or a random handful. Swipe up to delete, down to favorite, sideways to browse. Undo anything you change your mind about.</p>
+    </div>
+    <div class="stage">
+      <div class="phone-box">
+        <div class="phone">
+          <div class="scr">
+            <img src="assets/img/ui-sort-en.jpg" alt="ZenPic's sorting screen: a lakeside photo with Help, Keep and Delete buttons below" width="660" height="1434">
+            <div class="deck" id="deck">
+              <div class="deck-done"><b id="doneT"></b><span id="doneS"></span><button type="button" id="again"></button></div>
+              <i class="tdot"></i>
+            </div>
+            <button type="button" class="hit k" id="hitK" aria-label="Keep this photo"></button>
+            <button type="button" class="hit d" id="hitD" aria-label="Delete this photo"></button>
+          </div>
+        </div>
+        <span class="gl gl1 lb"><span class="tl or">↑</span><span><b>Swipe up · Delete</b><i>TO TRASH</i></span></span>
+        <span class="gl gl2 lb"><span class="tl">↓</span><span><b>Pull down · Favorite</b><i>FAVORITE</i></span></span>
+        <span class="gl gl3 lb"><span class="tl">✓</span><span><b>Tap · Keep</b><i>KEEP</i></span></span>
+      </div>
+      <p class="try"><b>This phone is live. Try it.</b><span><i class="mono">↑</i>Up to delete</span><span><i class="mono">↓</i>Down to favorite</span><span><i class="mono">↔</i>Sideways to browse</span></p>
+    </div>
+    <div class="side">
+      <div class="tray rv">
+        <div class="tray-h">
+          <span class="anchor" id="a-badge" data-shape="circle"><em id="nTrash">0</em></span>
+          <h3>Trash<small>not deleted yet</small></h3>
+          <button type="button" class="tray-btn" id="back" disabled>Put all back</button>
+        </div>
+        <div class="thumbs" id="thumbs"><span class="empty">Photos you swipe away wait here</span></div>
+        <p class="note"><b>Nothing goes without your say.</b> Photos you toss wait in ZenPic’s Trash until you confirm. iOS asks once more before deleting from your library, and deleted items stay in Recently Deleted for 30 days.</p>
+        <p class="count"><span>Kept<b id="nKeep">0</b></span><span>Favorites<b id="nFav">0</b></span><span>Left<b id="nLeft">6</b></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 占地方的，都找出来 -->
+<section class="sec clean" id="s2" data-n="02">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="cap">02 · Clear the clutter</p>
+      <h2>Find what’s taking up space</h2>
+      <p>Duplicates, similar shots, screenshots, screen recordings, Live Photos and large videos, each in its own pile. Suggestions are lined up for you to check before anything moves.</p>
+    </div>
+  </div>
+  <div class="shots" id="shots">
+    <article class="shot on">
+      <div class="phone"><div class="scr"><img loading="lazy" src="assets/img/ui-cleanup-en.jpg" alt="ZenPic's Cleanup screen listing duplicates, similar photos, screenshots, screen recordings, Live Photos, large videos and memes" width="660" height="1434"></div></div>
+      <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <h3>See what takes the most room</h3>
+      <p>Duplicates, similar shots, screenshots, screen recordings, Live Photos, large videos and memes, listed separately.</p>
+    </article>
+    <article class="shot">
+      <div class="phone"><div class="scr"><img loading="lazy" src="assets/img/ui-similar-en.jpg" alt="ZenPic's Similar Photos screen comparing two lakeside photos, one marked keep and one marked delete" width="660" height="1434"></div></div>
+      <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <h3>Ten shots in a row? It suggests the best</h3>
+      <p>Similar photos are grouped with a suggested keeper. Nothing moves until you confirm.</p>
+    </article>
+    <article class="shot">
+      <div class="phone"><div class="scr"><img loading="lazy" src="assets/img/ui-compress-en.jpg" alt="ZenPic's compression screen with Best Quality, Balanced and Save Space settings" width="660" height="1434"></div></div>
+      <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <h3>Shrink big videos, carefully</h3>
+      <p>Three quality levels, for photos too. The compressed copy is saved as a new item and your original stays put until you decide.</p>
+    </article>
+    <article class="shot">
+      <div class="phone"><div class="scr"><img loading="lazy" src="assets/img/ui-home-en.jpg" alt="ZenPic's home screen with shortcuts to continue sorting, a random batch, recent days, albums and the map" width="660" height="1434"></div></div>
+      <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <h3>One small batch at a time</h3>
+      <p>By month, by album, by place on the map, or 20 at random. Your progress is saved, so next time you carry on from there.</p>
+    </article>
+  </div>
+  <div class="pager" id="pager" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+</section>
+
+<!-- 03 没网也能理 -->
+<section class="sec offline" id="s3" data-n="03">
+  <div class="wrap off-wrap">
+    <div class="sh rv">
+      <p class="cap"><span class="anchor" id="a-plane" data-shape="plane"></span>03 · Offline</p>
+      <h2>No signal? Keep sorting</h2>
+      <p>Save iCloud photos to your iPhone before you leave. On a flight or a long commute, you can still keep, toss and file them.</p>
+    </div>
+    <div class="off rv" id="off">
+      <div class="off-top">
+        <button type="button" class="sw" id="air" role="switch" aria-checked="false">
+          <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M50 4C54 4 57 10 57 18L57 38 94 60 94 70 57 58 57 80 68 88 68 95 50 90 32 95 32 88 43 80 43 58 6 70 6 60 43 38 43 18C43 10 46 4 50 4Z"/></svg>
+          Airplane Mode<span class="tr"></span>
+        </button>
+        <span class="net" id="net">ONLINE</span>
+      </div>
+      <p class="off-line" id="offLine" aria-live="polite">These older photos live in iCloud. Try turning on Airplane Mode.</p>
+      <div class="off-grid" id="offGrid">
+        <figure class="ph"><img class="lo" src="assets/img/s-coast.jpg" alt=""><img class="hi" loading="lazy" src="assets/img/p-coast.jpg" alt="A coastal path"><span class="t"></span></figure>
+        <figure class="ph"><img class="lo" src="assets/img/s-cat.jpg" alt=""><img class="hi" loading="lazy" src="assets/img/p-cat.jpg" alt="An orange cat on a sofa"><span class="t"></span></figure>
+        <figure class="ph"><img class="lo" src="assets/img/s-food.jpg" alt=""><img class="hi" loading="lazy" src="assets/img/p-food.jpg" alt="A breakfast plate"><span class="t"></span></figure>
+        <figure class="ph"><img class="lo" src="assets/img/s-lake.jpg" alt=""><img class="hi" loading="lazy" src="assets/img/p-lake.jpg" alt="A lake in autumn"><span class="t"></span></figure>
+        <figure class="ph"><img class="lo" src="assets/img/s-note.jpg" alt=""><img class="hi" loading="lazy" src="assets/img/p-note.jpg" alt="A printed checklist"><span class="t"></span></figure>
+        <figure class="ph"><img class="lo" src="assets/img/s-lake2.jpg" alt=""><img class="hi" loading="lazy" src="assets/img/p-lake2.jpg" alt="The same lake, another shot"><span class="t"></span></figure>
+      </div>
+      <div class="off-bot">
+        <button type="button" class="cache" id="cache"><span class="anchor" id="a-cloud" data-shape="cloud"></span><span id="cacheT">Save before takeoff</span></button>
+        <span class="off-n" id="offN">SAVED 0 / 6</span>
+      </div>
+    </div>
+    <div class="duo rv">
+      <div class="phone"><div class="scr"><img loading="lazy" src="assets/img/ui-offline-en.jpg" alt="ZenPic's offline screen: choose photos by month, date or album, pick a size, Wi-Fi only, and clear copies once sorted" width="660" height="1434"></div></div>
+      <ul class="spec">
+        <li><i>RANGE</i>By month, by date range, or by album</li>
+        <li><i>SIZE</i>Clear: 2048 px on the long edge<br>Space saver: 1280 px</li>
+        <li><i>NETWORK</i>Wi‑Fi only by default</li>
+        <li><i>AUTO</i>Copies clear themselves once sorted</li>
+      </ul>
+    </div>
+    <p class="note rv">Offline copies are smaller versions for viewing and sorting, not backups of your originals. Photos you haven’t saved ahead may need a connection if they’re in iCloud, and so do editing, full video playback, maps and address search.</p>
+  </div>
+</section>
+
+<!-- 04 照片变 PDF -->
+<section class="pdf" id="s4" data-n="04">
+  <div class="pdf-sticky">
+    <div class="wrap">
+      <div>
+        <p class="cap">04 · Photo to PDF</p>
+        <div class="pdf-texts">
+          <div class="pdf-t"><h2>Some photos aren’t memories. They’re paperwork.</h2><p>Receipts, whiteboards, slides and documents: too useful to delete, too many to keep.</p></div>
+          <div class="pdf-t"><h3>Screens and pages, framed and straightened</h3><p>When it isn’t sure, it leaves the photo as it is.</p></div>
+          <div class="pdf-t"><h3>Pick the photos. A few taps, one PDF.</h3><p>Pages follow the order you shot them, with three quality levels to choose from.</p></div>
+          <div class="pdf-t"><h3>Save to Files, AirDrop to your Mac</h3><p>With the PDF saved, clear the original photos in one go.<small>The space comes back once Recently Deleted is emptied.</small></p></div>
+        </div>
+        <div class="steps" id="steps" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="scene-box" id="sceneBox" aria-hidden="true">
+        <div class="scene" id="scene">
+          <div class="sc-photo" id="scPhoto"></div>
+          <div class="pg" style="background-image:url(assets/img/t-receipt-en.jpg)"></div>
+          <div class="pg" style="background-image:url(assets/img/t-label-en.jpg)"></div>
+          <div class="pg" style="background-image:url(assets/img/p-note.jpg);background-position:50% 12%"></div>
+          <div class="sc-screen" id="scScreen">
+            <span class="sl-t">Session 3 · Recap</span><span class="sl-s"></span>
+            <span class="sl-l" style="top:62px"></span><span class="sl-l" style="top:78px;width:74px"></span><span class="sl-l" style="top:94px;width:84px"></span><span class="sl-l" style="top:110px;width:58px"></span>
+            <span class="sl-b" style="left:140px;height:34px"></span><span class="sl-b" style="left:166px;height:58px"></span><span class="sl-b" style="left:192px;height:46px"></span><span class="sl-b" style="left:218px;height:74px"></span>
+          </div>
+          <svg class="sc-svg" viewBox="0 0 360 470">
+            <g id="scCeil" stroke="#fff" stroke-width="5" stroke-opacity="0" paint-order="stroke" stroke-linejoin="round">
+              <path d="M38 70h284a8 8 0 0 1 8 8v38H30V78a8 8 0 0 1 8-8z" fill="#2c343e"/>
+              <g fill="#FFE1AE" stroke="none"><ellipse cx="70" cy="91" rx="15" ry="4.2"/><ellipse cx="125" cy="91" rx="15" ry="4.2"/><ellipse cx="180" cy="91" rx="15" ry="4.2"/><ellipse cx="235" cy="91" rx="15" ry="4.2"/><ellipse cx="290" cy="91" rx="15" ry="4.2"/></g>
+            </g>
+            <g id="scHeads" fill="#161b21" stroke="#fff" stroke-width="5" stroke-opacity="0" paint-order="stroke" stroke-linejoin="round">
+              <path d="M40 295a31 27 0 0 1 62 0zM71 232a17 18 0 1 1 0 36a17 18 0 1 1 0-36z"/>
+              <path d="M92 295a33 30 0 0 1 66 0zM125 224a19 20 0 1 1 0 40a19 20 0 1 1 0-40z"/>
+              <path d="M150 295a30 25 0 0 1 60 0zM180 236a16 17 0 1 1 0 34a16 17 0 1 1 0-34z"/>
+              <path d="M200 295a33 30 0 0 1 66 0zM233 226a19 20 0 1 1 0 40a19 20 0 1 1 0-40z"/>
+              <path d="M258 295a31 26 0 0 1 62 0zM289 234a17 18 0 1 1 0 36a17 18 0 1 1 0-36z"/>
+            </g>
+            <g id="scL1" opacity="0" stroke="#27323C" stroke-width="1.5"><path d="M60 56V90"/><circle cx="60" cy="90" r="4.5" fill="#fff"/></g>
+            <g id="scL2" opacity="0" stroke="#27323C" stroke-width="1.5"><path d="M252 56V122"/><circle cx="252" cy="122" r="4.5" fill="#fff"/></g>
+            <g id="scL3" opacity="0" stroke="#27323C" stroke-width="1.5"><path d="M70 312V270"/><circle cx="70" cy="270" r="4.5" fill="#fff"/></g>
+            <path id="scC1" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path id="scC2" fill="none" stroke="#FF5A36" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="lb" id="lbCeil" style="left:34px;top:16px"><span class="tl">✕</span><span><b>Ceiling</b><i>CROPPED</i></span></div>
+          <div class="lb" id="lbScr" style="left:212px;top:16px"><span class="tl or">✓</span><span><b>Screen</b><i>KEPT</i></span></div>
+          <div class="lb" id="lbHead" style="left:34px;top:320px"><span class="tl">✕</span><span><b>Audience</b><i>CROPPED</i></span></div>
+          <div class="lb" id="lbSkew" style="left:200px;top:320px"><span><b>Straightened</b><i id="deg">DESKEW</i></span></div>
+          <div class="sc-n" id="scN"><b>4</b>PAGES · ONE PDF</div>
+          <span class="anchor" id="a-doc" data-shape="doc"><em>PDF</em></span>
+          <div class="chips" id="scChips">
+            <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M1.5 4.5v8h13v-7h-6l-1.5-2h-5.5z"/></svg>Save to Files</span>
+            <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V2M4.5 5.5 8 2l3.5 3.5M2.5 10v3.5h11V10"/></svg>AirDrop to Mac</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 照片，不发给我们 -->
+<section class="sec priv" id="s5" data-n="05">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="cap">05 · Privacy</p>
+      <h2>Your photos stay yours</h2>
+      <p>Sorting and analysis run on your iPhone.</p>
+    </div>
+    <dl class="zeros rv">
+      <div><dt>Accounts</dt><dd class="z">0</dd><dd class="n">No sign-up</dd></div>
+      <div><dt>Ads</dt><dd class="z">0</dd><dd class="n">None</dd></div>
+      <div><dt>Trackers</dt><dd class="z">0</dd><dd class="n">No third-party analytics</dd></div>
+      <div><dt>Photo servers</dt><dd class="z">0</dd><dd class="n">We have no servers that receive your photos</dd></div>
+    </dl>
+    <p class="note rv">Maps, place names and address search come from Apple Maps, so the places you view and the text you search go to Apple. iCloud Photos keeps working the way you’ve set it up.</p>
+    <a class="more" href="privacy/index.html">Read the full privacy policy →</a>
+  </div>
+</section>
+
 </main>
+
+<!-- 结尾 -->
+<section class="end" id="end">
+  <div class="end-sticky">
+    <span class="anchor" id="a-dot" data-shape="circle" aria-hidden="true"></span>
+    <div class="end-or" id="endOr"></div>
+    <p class="end-line" id="endLine"><span class="nb">Memories kept.</span> <span class="nb">Paperwork filed.</span><br><span class="nb">Phone cleared.</span></p>
+    <div class="end-bk" id="endBk"></div>
+    <div class="end-logo" id="endLogo">
+      <img src="assets/img/icon-256.png" alt="ZenPic icon" width="104" height="104" loading="lazy">
+      <p class="nm">ZenPic</p>
+      <p class="sl">Swipe, Sort, Clear the Clutter</p>
+      <a class="btn w" href="https://apps.apple.com/app/id6829452527">Download on the App Store
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+      <small>Search “ZenPic: Photo Cleaner” on the App Store<br>Requires an iPhone with iOS 18 or later</small>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Privacy and support">
+      <a href="privacy/index.html">Privacy Policy</a>
+      <a href="support/index.html">Support</a>
+      <a href="zh/privacy/index.html" lang="zh-Hans">隐私政策</a>
+      <a href="zh/support/index.html" lang="zh-Hans">技术支持</a>
+      <a href="zh/index.html" lang="zh-Hans">中文</a>
+    </nav>
+    <p><a href="mailto:61073198@qq.com">61073198@qq.com</a></p>
+  </div>
+</footer>
+
+<script>
+/* 页面里会变的文字都放这里 */
+window.TEXT={
+  photos:[["lake","A lake in autumn"],["food","A breakfast plate"],["coast","A coastal path"],["cat","An orange cat on a sofa"],["lake2","The same lake, another shot"],["note","A printed checklist"]],
+  del:"Release · to Trash",fav:"Release · favorite",keep:"✓ Keep",
+  doneT:"Batch done",doneS:"Kept {k} · Favorites {f} · Trash {t}",again:"Another batch",
+  empty:"Photos you swipe away wait here",
+  online:"ONLINE",offline:"OFFLINE",
+  inCloud:"In iCloud",blurry:"Blurry preview",saved:"Saved",
+  l0:"These older photos live in iCloud. Try turning on Airplane Mode.",
+  l1:"On a flight, old photos turn blurry?",
+  l2:"Before takeoff, save a copy.",
+  l3:"No signal. Keep, toss and file anyway.",
+  cache:"Save before takeoff",cacheNo:"Offline, can’t save",cacheOk:"All saved",
+  count:"SAVED {n} / 6",
+  deskew:"DESKEW {a}° → 0.0°"
+};
+</script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>
