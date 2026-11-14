@@ -81,6 +81,8 @@
       <div class="film-frame">
         <div class="film-box st">
           <video id="vid" controls playsinline webkit-playsinline x5-playsinline preload="none" poster="../assets/img/main-poster.jpg" width="720" height="1280" aria-label="淘片 38 秒短片">
+            <!-- 先从国内加速的地址播；那边打不开，浏览器自动换下一条（放在 GitHub 的轻量版） -->
+            <source src="https://636c-cloud1-d8g4kl7i9ec4c6ba5-1504385938.tcb.qcloud.la/taopian-main.mp4" type="video/mp4">
             <source src="../assets/video/main.mp4" type="video/mp4">
           </video>
           <button type="button" class="film-play" id="play" aria-label="播放 38 秒短片"><span class="anchor" id="a-play" data-shape="circle"><em></em></span></button>

@@ -1,5 +1,6 @@
 /* 淘片介绍页 · 上课版的短片
-   点一下才开始加载和播放，不点不花流量；没有脚本时退回浏览器自带的播放条。 */
+   点一下才开始加载和播放，不点不花流量；没有脚本时退回浏览器自带的播放条。
+   视频先从国内加速的地址播，打不开时自动换 GitHub 上的轻量版。 */
 (function () {
   'use strict';
   var D = document, film = D.getElementById('film'), v = D.getElementById('vid'), btn = D.getElementById('play'), cap = D.getElementById('filmCap');
@@ -17,5 +18,6 @@
   v.addEventListener('pause', function () { if (!v.seeking && !v.ended) off(); });
   v.addEventListener('ended', function () { off(); v.removeAttribute('controls'); v.load(); });
   v.addEventListener('error', fail);
-  var s = v.querySelector('source'); if (s) s.addEventListener('error', fail);
+  /* 有好几条地址时，前面的打不开浏览器会自动换下一条；最后一条也打不开才算失败 */
+  var ss = v.querySelectorAll('source'); if (ss.length) ss[ss.length - 1].addEventListener('error', fail);
 })();
