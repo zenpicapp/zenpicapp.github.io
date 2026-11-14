@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>淘片 · 网速测试</title>
+<!-- 测速页：在不同手机的微信里打开，看网页、国内图片、国内视频、GitHub 图片各要多久。只在本机计时，不上传任何数据。 -->
+<style>
+body{margin:0;padding:20px;font:16px/1.5 -apple-system,"PingFang SC",sans-serif;background:#E9EEF2;color:#1E2933}
+h1{font-size:22px;margin:0 0 6px}
+p{margin:0 0 14px;color:#5C6975;font-size:14px}
+button{display:block;width:100%;height:52px;border:0;border-radius:26px;background:#0A0C0F;color:#fff;font-size:18px;font-weight:600}
+table{width:100%;border-collapse:collapse;margin-top:18px;background:#fff;border-radius:12px;overflow:hidden}
+td{padding:11px 12px;border-top:1px solid #E3E8EC;font-size:15px;vertical-align:top}
+td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+tr:first-child td{border-top:0}
+.ok{color:#1E8E4E}.slow{color:#FF5A36}
+#ua{margin-top:14px;font:11px/1.4 ui-monospace,Menlo,monospace;color:#8593A0;word-break:break-all}
+video{width:1px;height:1px;opacity:0;position:absolute}
+</style>
+</head>
+<body>
+<h1>网速测试</h1>
+<p>点下面的按钮，等表格里都出了数字（约 15 秒），截一张图。</p>
+<button id="go" type="button">开始测</button>
+<table id="t"></table>
+<div id="ua"></div>
+<video id="v" playsinline webkit-playsinline muted preload="none"></video>
+<script>
+(function(){
+  var CDN='https://636c-cloud1-d8g4kl7i9ec4c6ba5-1504385938.tcb.qcloud.la/';
+  var GH='https://zenpicapp.github.io/';
+  var T=document.getElementById('t');
+  function row(name){var r=T.insertRow();r.insertCell().textContent=name;var c=r.insertCell();c.textContent='…';return c}
+  function show(c,ms,slow){c.textContent=ms<0?'失败':(ms/1000).toFixed(2)+' 秒';c.className=ms<0||ms>slow?'slow':'ok'}
+  function img(url){return new Promise(function(res){var t0=performance.now(),i=new Image(),done=false;
+    var to=setTimeout(function(){if(!done){done=true;res(-1)}},20000);
+    i.onload=function(){if(!done){done=true;clearTimeout(to);res(performance.now()-t0)}};
+    i.onerror=function(){if(!done){done=true;clearTimeout(to);res(-1)}};
+    i.src=url+(url.indexOf('?')<0?'?':'&')+'r='+Math.random()})}
+  var nav=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];
+  var c0=row('这个网页本身（从 GitHub）');
+  if(nav){show(c0,nav.responseEnd-nav.startTime,2000)}else{c0.textContent='—'}
+  document.getElementById('ua').textContent=navigator.userAgent;
+  document.getElementById('go').addEventListener('click',function(){
+    this.disabled=true;this.textContent='测试中…';var btn=this;
+    var c1=row('国内小图（云开发，6 KB）'),c2=row('国内大图（云开发，220 KB）'),c3=row('GitHub 大图（220 KB）'),c4=row('国内视频开始播放'),c5=row('国内视频 8 秒内下载了');
+    // 视频：用户点了按钮才能播，所以先开始
+    var v=document.getElementById('v'),t0=performance.now(),started=false;
+    v.src=CDN+'taopian-class.mp4?r='+Math.random();v.preload='auto';
+    v.addEventListener('playing',function(){if(!started){started=true;show(c4,performance.now()-t0,3000)}});
+    v.addEventListener('error',function(){c4.textContent='失败';c4.className='slow'});
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+    setTimeout(function(){
+      var b=0;try{if(v.buffered.length)b=v.buffered.end(v.buffered.length-1)}catch(e){}
+      if(!started){c4.textContent='8 秒还没开始';c4.className='slow'}
+      c5.textContent=b.toFixed(1)+' 秒的视频';c5.className=b>=8?'ok':'slow';v.pause();
+    },8000);
+    img(CDN+'taopian-web/assets/img/icon-64.png').then(function(ms){show(c1,ms,1000);return img(CDN+'taopian-web/assets/img/ui-similar.jpg')})
+    .then(function(ms){show(c2,ms,1500);return img(GH+'assets/img/ui-similar.jpg')})
+    .then(function(ms){show(c3,ms,1500);setTimeout(function(){btn.textContent='测完了，截图发给我'},4000)});
+  });
+})();
+</script>
+</body>
+</html>
