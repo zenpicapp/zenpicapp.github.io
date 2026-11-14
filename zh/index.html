@@ -12,6 +12,7 @@
 <link rel="icon" href="../assets/img/icon-64.png">
 <link rel="apple-touch-icon" href="../assets/img/icon-180.png">
 <link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/class.css">
 <script>document.documentElement.className='js'</script>
 </head>
 <body>
@@ -65,6 +66,29 @@
         <span class="tag tag3 lb chip"><span><b>资料 · 存成 PDF</b><i>DOCUMENT</i></span></span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 短片：38 秒看个大概（播放块的样式和脚本在 class.css、class.js，和上课版共用） -->
+<section class="sec filmsec" id="film-sec">
+  <div class="wrap film-wrap">
+    <div class="sh rv">
+      <p class="cap">Film · 38 秒</p>
+      <h2><span class="nb">38 秒，</span><span class="nb">看个大概</span></h2>
+      <p>怎么滑着理、怎么把占地方的找出来、没网怎么理、照片怎么变 PDF，一条短片讲完。</p>
+    </div>
+    <figure class="film" id="film">
+      <div class="film-frame">
+        <div class="film-box st">
+          <video id="vid" controls playsinline webkit-playsinline x5-playsinline preload="none" poster="../assets/img/main-poster.jpg" width="720" height="1280" aria-label="淘片 38 秒短片">
+            <source src="../assets/video/main.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="film-play" id="play" aria-label="播放 38 秒短片"><span class="anchor" id="a-play" data-shape="circle"><em></em></span></button>
+        </div>
+        <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </div>
+      <figcaption id="filmCap" data-fail="短片没加载出来，往下看也一样">38 秒短片 · 有声音</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -322,5 +346,6 @@ window.TEXT={
 };
 </script>
 <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/class.js" defer></script>
 </body>
 </html>

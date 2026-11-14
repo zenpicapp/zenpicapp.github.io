@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#E9EEF2">
+<meta name="robots" content="noindex">
+<meta name="apple-itunes-app" content="app-id=6829452527">
+<title>淘片 · 上课拍的课件，手机上直接变 PDF</title>
+<meta name="description" content="老师不发 PPT，讲义会丢，板书会擦。拍下来，在 iPhone 上自动框出屏幕、拉正，一键合成一份 PDF，不用电脑，照片不上传。和同学、孩子、家人的照片，淘出好的，淘汰不要的。">
+<meta property="og:title" content="淘片 · 上课拍的课件，手机上直接变 PDF">
+<meta property="og:description" content="屏幕、讲义、板书，拍下来在 iPhone 上理成一份 PDF。不用电脑，照片不上传。">
+<meta property="og:image" content="https://zenpicapp.github.io/assets/img/icon-256.png">
+<link rel="icon" href="../../assets/img/icon-64.png">
+<link rel="apple-touch-icon" href="../../assets/img/icon-180.png">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/class.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+
+<svg id="fx" aria-hidden="true"><path id="fxp" fill="#FF5A36"/></svg>
+<div class="rail" id="rail" aria-hidden="true"></div>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="../../assets/img/icon-64.png" alt="" width="32" height="32">淘片</a>
+    <a class="btn s" href="https://apps.apple.com/app/id6829452527">下载</a>
+  </div>
+</header>
+
+<main>
+
+<!-- 第一屏：标题，右边是 42 秒短片 -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="brand"><img src="../../assets/img/icon-64.png" alt="淘片图标" width="32" height="32">淘片</span>
+      <span class="r"><a class="lang" href="../index.html">完整介绍</a><a class="btn s" href="https://apps.apple.com/app/id6829452527">下载</a></span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <p class="cap">ZenPic · 淘片 · 给上课的人</p>
+        <h1 class="c"><span>上课拍的课件，</span><span>手机上直接变 PDF</span></h1>
+        <p class="sub"><strong>自动框出屏幕、拉正，一键合成一份。</strong><span class="nb">不用电脑，</span><span class="nb">照片不上传。</span></p>
+        <div class="cta">
+          <a class="btn" href="https://apps.apple.com/app/id6829452527">App Store 下载
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+          <small>在 App Store 搜“淘片：照片清理”<br>需要 iOS 18 或更新版本的 iPhone</small>
+        </div>
+        <a class="more" href="#mates">同学专享：高级版免费用半年 ↓</a>
+      </div>
+      <figure class="film" id="film">
+        <div class="film-frame">
+        <div class="film-box st">
+          <video id="vid" controls playsinline webkit-playsinline x5-playsinline preload="none" poster="../../assets/img/class-poster.jpg" width="720" height="1280" aria-label="淘片上课版 42 秒短片">
+            <source src="../../assets/video/class.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="film-play" id="play" aria-label="播放 42 秒短片"><span class="anchor" id="a-play" data-shape="circle"><em></em></span></button>
+        </div>
+        <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </div>
+        <figcaption id="filmCap" data-fail="短片没加载出来，往下看也一样">42 秒短片 · 有声音</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 01 上课的资料，总是散的 -->
+<section class="sec pain" id="s1" data-n="01">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="cap">01 · In class</p>
+      <h2><span class="nb">上课的资料，</span><span class="nb">总是散的</span></h2>
+    </div>
+    <ol class="pains">
+      <li class="rv">
+        <div class="pic pic-ph" aria-hidden="true"><span class="st s1"><img loading="lazy" src="../../assets/img/c-photo2.jpg" alt=""></span><span class="st s2"><img loading="lazy" src="../../assets/img/c-photo3.jpg" alt=""></span><span class="st s3"><img loading="lazy" src="../../assets/img/c-photo1.jpg" alt=""></span></div>
+        <p><b>老师不发 PPT，</b>只能举着手机拍。</p>
+      </li>
+      <li class="rv">
+        <div class="pic pic-stack" aria-hidden="true"><img loading="lazy" src="../../assets/img/c-stack.png" alt=""></div>
+        <p><b>讲义又厚又重，</b>用完就不知道放哪了。</p>
+      </li>
+      <li class="rv">
+        <div class="pic pic-board" aria-hidden="true"><span class="st"><img loading="lazy" src="../../assets/img/c-board.jpg" alt=""></span></div>
+        <p><b>板书没有课件，</b>下课就擦了。</p>
+      </li>
+      <li class="rv">
+        <div class="pic pic-tools" aria-hidden="true"><span><i>×</i>只放几十张</span><span><i>×</i>先传电脑</span><span><i>×</i>要收费</span></div>
+        <p><b>想理成电子版：</b>有的工具一次只能放几十张，有的还得先传到电脑，好用的又多半要收费。</p>
+      </li>
+    </ol>
+    <p class="pain-end rv"><span class="nb">拍下来，</span><span class="nb">在 iPhone 上</span><span class="nb">就能理成<em>一份 PDF</em></span></p>
+  </div>
+</section>
+
+<!-- 02 照片变 PDF（跟着滚动走的课件动画，和大众版同一套） -->
+<section class="pdf" id="s4" data-n="02">
+  <div class="pdf-sticky">
+    <div class="wrap">
+      <div>
+        <p class="cap">02 · Photo to PDF</p>
+        <div class="pdf-texts">
+          <div class="pdf-t"><h2><span class="nb">屏幕、讲义、板书，</span><span class="nb">拍下来就是资料</span></h2><p>按上课的日子把照片挑出来。拍歪了、带着天花板和前排后脑勺，都没关系。</p></div>
+          <div class="pdf-t"><h3><span class="nb">屏幕、纸张，</span><span class="nb">自动框出来拉正</span></h3><p>框不准，就拖一下四个角，有放大镜帮你对准。</p></div>
+          <div class="pdf-t"><h3><span class="nb">几十张照片，</span><span class="nb">一份 PDF</span></h3><p>按拍的先后排好，点一下就生成。不用电脑。</p></div>
+          <div class="pdf-t"><h3><span class="nb">存到文件，</span><span class="nb">隔空投送到电脑</span></h3><p>PDF 存好，原照片一键清掉，空间腾出来。<small>清空“最近删除”后，空间才真正腾出来。</small></p></div>
+        </div>
+        <div class="steps" id="steps" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="scene-box" id="sceneBox" aria-hidden="true">
+        <div class="scene" id="scene">
+          <div class="sc-photo" id="scPhoto"></div>
+          <div class="pg" style="background-image:url(../../assets/img/c-pg1.jpg)"></div>
+          <div class="pg" style="background-image:url(../../assets/img/c-pg2.jpg)"></div>
+          <div class="pg" style="background-image:url(../../assets/img/c-pg3.jpg)"></div>
+          <div class="sc-screen" id="scScreen">
+            <span class="sl-t">第三讲 · 课程回顾</span><span class="sl-s"></span>
+            <span class="sl-l" style="top:62px"></span><span class="sl-l" style="top:78px;width:74px"></span><span class="sl-l" style="top:94px;width:84px"></span><span class="sl-l" style="top:110px;width:58px"></span>
+            <span class="sl-b" style="left:140px;height:34px"></span><span class="sl-b" style="left:166px;height:58px"></span><span class="sl-b" style="left:192px;height:46px"></span><span class="sl-b" style="left:218px;height:74px"></span>
+          </div>
+          <svg class="sc-svg" viewBox="0 0 360 470">
+            <g id="scCeil" stroke="#fff" stroke-width="5" stroke-opacity="0" paint-order="stroke" stroke-linejoin="round">
+              <path d="M38 70h284a8 8 0 0 1 8 8v38H30V78a8 8 0 0 1 8-8z" fill="#2c343e"/>
+              <g fill="#FFE1AE" stroke="none"><ellipse cx="70" cy="91" rx="15" ry="4.2"/><ellipse cx="125" cy="91" rx="15" ry="4.2"/><ellipse cx="180" cy="91" rx="15" ry="4.2"/><ellipse cx="235" cy="91" rx="15" ry="4.2"/><ellipse cx="290" cy="91" rx="15" ry="4.2"/></g>
+            </g>
+            <g id="scHeads" fill="#161b21" stroke="#fff" stroke-width="5" stroke-opacity="0" paint-order="stroke" stroke-linejoin="round">
+              <path d="M40 295a31 27 0 0 1 62 0zM71 232a17 18 0 1 1 0 36a17 18 0 1 1 0-36z"/>
+              <path d="M92 295a33 30 0 0 1 66 0zM125 224a19 20 0 1 1 0 40a19 20 0 1 1 0-40z"/>
+              <path d="M150 295a30 25 0 0 1 60 0zM180 236a16 17 0 1 1 0 34a16 17 0 1 1 0-34z"/>
+              <path d="M200 295a33 30 0 0 1 66 0zM233 226a19 20 0 1 1 0 40a19 20 0 1 1 0-40z"/>
+              <path d="M258 295a31 26 0 0 1 62 0zM289 234a17 18 0 1 1 0 36a17 18 0 1 1 0-36z"/>
+            </g>
+            <g id="scL1" opacity="0" stroke="#27323C" stroke-width="1.5"><path d="M60 56V90"/><circle cx="60" cy="90" r="4.5" fill="#fff"/></g>
+            <g id="scL2" opacity="0" stroke="#27323C" stroke-width="1.5"><path d="M252 56V122"/><circle cx="252" cy="122" r="4.5" fill="#fff"/></g>
+            <g id="scL3" opacity="0" stroke="#27323C" stroke-width="1.5"><path d="M70 312V270"/><circle cx="70" cy="270" r="4.5" fill="#fff"/></g>
+            <path id="scC1" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path id="scC2" fill="none" stroke="#FF5A36" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="lb" id="lbCeil" style="left:34px;top:16px"><span class="tl">裁</span><span><b>天花板</b><i>CEILING</i></span></div>
+          <div class="lb" id="lbScr" style="left:212px;top:16px"><span class="tl or">留</span><span><b>屏幕</b><i>SCREEN</i></span></div>
+          <div class="lb" id="lbHead" style="left:34px;top:320px"><span class="tl">裁</span><span><b>前排人头</b><i>AUDIENCE</i></span></div>
+          <div class="lb" id="lbSkew" style="left:200px;top:320px"><span><b>自动拉正</b><i id="deg">DESKEW</i></span></div>
+          <div class="sc-n" id="scN"><b>4</b>页 · 一份 PDF</div>
+          <span class="anchor" id="a-doc" data-shape="doc"><em>PDF</em></span>
+          <div class="chips" id="scChips">
+            <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M1.5 4.5v8h13v-7h-6l-1.5-2h-5.5z"/></svg>存到“文件”</span>
+            <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V2M4.5 5.5 8 2l3.5 3.5M2.5 10v3.5h11V10"/></svg>隔空投送到电脑</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 淘出好的，淘汰不要的（可以滑的那台手机） -->
+<section class="sec swipe" id="s2" data-n="03">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="cap">03 · Photos</p>
+      <h2><span class="nb">淘出好的，</span><span class="nb">淘汰不要的</span></h2>
+      <p>和同学的合影、孩子的每一天、家人的旅行，每张都舍不得删。可连拍、重复、拍糊的也混在里面，好照片反而被埋没。</p>
+      <div class="trio" aria-hidden="true">
+        <figure class="t1"><span class="st"><img loading="lazy" src="../../assets/img/a-class.jpg" alt=""></span><figcaption>同学<i>CLASSMATES</i></figcaption></figure>
+        <figure class="t2"><span class="st"><img loading="lazy" src="../../assets/img/a-kid.jpg" alt=""></span><figcaption>孩子<i>KIDS</i></figcaption></figure>
+        <figure class="t3"><span class="st"><img loading="lazy" src="../../assets/img/a-family.jpg" alt=""></span><figcaption>家人<i>FAMILY</i></figcaption></figure>
+      </div>
+      <p class="lead2"><b>划一下，留还是删。</b>上滑删除，下拉收藏，左右翻看，滑错了能撤销。</p>
+    </div>
+    <div class="stage">
+      <div class="phone-box">
+        <div class="phone">
+          <div class="scr">
+            <img src="../../assets/img/ui-sort.jpg" alt="淘片的整理页：一张湖边秋景照片，下面是帮助、保留、删除三个按钮" width="660" height="1435">
+            <div class="deck" id="deck">
+              <div class="deck-done"><b id="doneT"></b><span id="doneS"></span><button type="button" id="again"></button></div>
+              <i class="tdot"></i>
+            </div>
+            <button type="button" class="hit k" id="hitK" aria-label="保留这张"></button>
+            <button type="button" class="hit d" id="hitD" aria-label="删除这张"></button>
+          </div>
+        </div>
+        <span class="gl gl1 lb"><span class="tl or">↑</span><span><b>上滑 · 删除</b><i>TO TRASH</i></span></span>
+        <span class="gl gl2 lb"><span class="tl">↓</span><span><b>下拉 · 收藏</b><i>FAVORITE</i></span></span>
+        <span class="gl gl3 lb"><span class="tl">✓</span><span><b>点一下 · 保留</b><i>KEEP</i></span></span>
+      </div>
+      <p class="try"><b>这台手机能滑，试试看</b><span><i class="mono">↑</i>上滑删除</span><span><i class="mono">↓</i>下拉收藏</span><span><i class="mono">↔</i>左右翻看</span></p>
+    </div>
+    <div class="side">
+      <div class="tray rv">
+        <div class="tray-h">
+          <span class="anchor" id="a-badge" data-shape="circle"><em id="nTrash">0</em></span>
+          <h3>回收站<small>还没真删</small></h3>
+          <button type="button" class="tray-btn" id="back" disabled>全部放回</button>
+        </div>
+        <div class="thumbs" id="thumbs"><span class="empty">上滑删掉的照片，先放在这里</span></div>
+        <p class="note"><b>删之前，再看一眼。</b>删掉的照片先待在淘片回收站，你确认后才交给系统。系统删之前还会再问一次，之后在“最近删除”里再放 30 天。</p>
+        <p class="count"><span>保留<b id="nKeep">0</b></span><span>收藏<b id="nFav">0</b></span><span>还剩<b id="nLeft">6</b></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 相似的放一起比 -->
+<section class="sec clean" id="s3" data-n="04">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="cap">04 · Clear the clutter</p>
+      <h2><span class="nb">相似的放一起比，</span><span class="nb">留下最好的</span></h2>
+      <p>重复、相似、截图、大视频，各归各类。建议先列好，你看过再定。</p>
+    </div>
+  </div>
+  <div class="shots" id="shots">
+    <article class="shot on">
+      <div class="phone"><div class="scr"><img loading="lazy" src="../../assets/img/ui-similar.jpg" alt="淘片的相似照片页：两张相似的湖景照片，一张标着留，一张标着删" width="660" height="1435"></div></div>
+      <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <h3>连拍十张，帮你挑出最好的</h3>
+      <p>相似的照片归成一组，推荐留哪张；你确认了才动。</p>
+    </article>
+    <article class="shot">
+      <div class="phone"><div class="scr"><img loading="lazy" src="../../assets/img/ui-cleanup.jpg" alt="淘片的清理页：重复照片、相似照片、截图、屏幕录制、实况照片、大视频、表情包分开列出" width="660" height="1435"></div></div>
+      <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <h3>哪些最占地方，一眼看清</h3>
+      <p>重复、相似、截图、屏幕录制、实况照片、大视频、表情包，分开列出来。</p>
+    </article>
+    <article class="shot">
+      <div class="phone"><div class="scr"><img loading="lazy" src="../../assets/img/ui-compress.jpg" alt="淘片的压缩页：清晰优先、均衡、省空间三个压缩档位" width="660" height="1435"></div></div>
+      <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <h3>大视频，压小再留</h3>
+      <p>三档任选，照片也能压。压好的另存一份，原片不动，看过再决定留哪份。</p>
+    </article>
+    <article class="shot">
+      <div class="phone"><div class="scr"><img loading="lazy" src="../../assets/img/ui-offline.jpg" alt="淘片的离线缓存页：按月份、按日期、按相簿选范围" width="660" height="1435"></div></div>
+      <span class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <h3>没网，照样理</h3>
+      <p>出门前把 iCloud 里的照片存一份到手机，飞机上、地铁里一样能理。存的是缩小的图，用来看和整理。</p>
+    </article>
+  </div>
+  <div class="pager" id="pager" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+</section>
+
+<!-- 05 照片，不发给我们（和大众版一样） -->
+<section class="sec priv" id="s5" data-n="05">
+  <div class="wrap">
+    <div class="sh rv">
+      <p class="cap">05 · Privacy</p>
+      <h2><span class="nb">照片，</span><span class="nb">不发给我们</span></h2>
+      <p>整理和分析都在你的 iPhone 上完成。</p>
+    </div>
+    <dl class="zeros rv">
+      <div><dt>账号</dt><dd class="z">0</dd><dd class="n">不用注册</dd></div>
+      <div><dt>广告</dt><dd class="z">0</dd><dd class="n">没有广告</dd></div>
+      <div><dt>第三方统计</dt><dd class="z">0</dd><dd class="n">没有统计代码</dd></div>
+      <div><dt>接收照片的服务器</dt><dd class="z">0</dd><dd class="n">我们没有这样的服务器</dd></div>
+    </dl>
+    <p class="note rv">地图、地名和地址搜索由 Apple 地图提供，你看的地点和搜的文字会发给 Apple。iCloud 照片还是照你原来的设置工作。</p>
+    <a class="more" href="../privacy/index.html">看隐私政策全文 →</a>
+  </div>
+</section>
+
+<!-- 06 同学专享。码不放在网页上，海报由同学在群里发 -->
+<section class="sec mates" id="mates" data-n="06">
+  <div class="wrap mates-wrap">
+    <div>
+      <div class="sh rv">
+        <p class="cap">06 · Classmates</p>
+        <h2><span class="nb">我也在读 EMBA，</span><span class="nb">上课拍得比谁都多</span></h2>
+        <p>干脆用 AI 给自己做了个 App。不只 EMBA，只要还在上课，都用得上。</p>
+      </div>
+      <div class="mates-col rv">
+        <div class="idc">
+          <p class="cap">Classmate</p>
+          <img loading="lazy" src="../../assets/img/sch-hku.jpg" alt="港大经管学院 EMBA" width="456" height="120">
+          <b>港大 EMBA 7A 班</b>
+          <hr>
+          <img loading="lazy" src="../../assets/img/sch-pku.jpg" alt="北京大学光华管理学院 EMBA" width="756" height="120">
+          <b>北大 EMBA 183 班</b>
+        </div>
+      </div>
+    </div>
+    <div class="mates-col rv">
+      <div class="tk">
+        <div class="tk-top"><p class="cap">同学专享 · Premium</p><b>高级版免费用半年，<em>不限张数</em></b></div>
+        <div class="tk-bot"><img loading="lazy" src="../../assets/img/icon-64.png" alt="" width="28" height="28">淘片<i>FOR CLASSMATES</i></div>
+      </div>
+      <p class="how"><b>怎么领</b>找发这个页面给你的同学要海报，长按二维码就能领。</p>
+      <p class="note">半年后按年费自动续，不想续随时在 iPhone「设置」里取消。已经有终身版的同学不用再领。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 结尾（和大众版一样） -->
+<section class="end" id="end">
+  <div class="end-sticky">
+    <span class="anchor" id="a-dot" data-shape="circle" aria-hidden="true"></span>
+    <div class="end-or" id="endOr"></div>
+    <p class="end-line" id="endLine"><span class="nb">回忆留下，</span><span class="nb">资料存档，</span><br><span class="nb">手机腾出来了</span></p>
+    <div class="end-bk" id="endBk"></div>
+    <div class="end-logo" id="endLogo">
+      <img src="../../assets/img/icon-256.png" alt="淘片图标" width="104" height="104" loading="lazy">
+      <p class="nm">淘片</p>
+      <p class="sl">滑一滑，淘出好照片</p>
+      <a class="btn w" href="https://apps.apple.com/app/id6829452527">App Store 下载
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+      <small>在 App Store 搜“淘片：照片清理”<br>需要 iOS 18 或更新版本的 iPhone</small>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="隐私和支持">
+      <a href="../index.html">淘片完整介绍</a>
+      <a href="../privacy/index.html">隐私政策</a>
+      <a href="../support/index.html">技术支持</a>
+      <a href="../../index.html?en" lang="en">English</a>
+    </nav>
+    <p><a href="mailto:61073198@qq.com">61073198@qq.com</a></p>
+  </div>
+</footer>
+
+<script>
+/* 页面里会变的文字都放这里（和中文大众版同一套，只换了可滑的那几张照片） */
+window.TEXT={
+  base:"../../",
+  photos:[["kid","孩子放气球"],["lake","湖边秋景"],["lake2","湖边秋景，另一张"],["family","一家人在湖边"],["cat","沙发上的橘猫"],["note","一页清单"]],
+  del:"松手 · 放进回收站",fav:"松手 · 收藏",keep:"✓ 保留",
+  doneT:"这一批理完了",doneS:"保留 {k} · 收藏 {f} · 回收站 {t}",again:"再来一批",
+  empty:"上滑删掉的照片，先放在这里",
+  deskew:"DESKEW {a}° → 0.0°"
+};
+</script>
+<script src="../../assets/js/site.js" defer></script>
+<script src="../../assets/js/class.js" defer></script>
+</body>
+</html>
