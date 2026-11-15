@@ -375,3 +375,17 @@
     }, { threshold: 0.55 }).observe(box);
   })();
 })();
+
+/* 第一屏底部的“往下滑”提示：滑一下就收起，不再出来；点它往下翻大半屏 */
+(function () {
+  var el = document.getElementById('scrollhint'); if (!el) return;
+  var R = document.documentElement;
+  function y() { return window.pageYOffset || R.scrollTop || 0; }
+  if (y() > 24 || R.scrollHeight <= window.innerHeight + 40) { el.hidden = true; return; }
+  function on() { if (y() > 24) { el.classList.add('gone'); window.removeEventListener('scroll', on); setTimeout(function () { el.hidden = true; }, 450); } }
+  window.addEventListener('scroll', on, { passive: true });
+  el.addEventListener('click', function () {
+    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollBy({ top: Math.round(window.innerHeight * 0.8), behavior: rm ? 'auto' : 'smooth' });
+  });
+})();

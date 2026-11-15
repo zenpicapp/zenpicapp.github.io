@@ -409,6 +409,17 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .js .scene-box{height:400px;margin-top:20px}
 }
 
+/* 第一屏底部的“往下滑”提示：一滑就收起，不再出来；系统开了减弱动态效果就不跳 */
+.scrollhint{display:none}
+.js .scrollhint{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:6px;height:40px;padding:0 13px 0 17px;border:0;border-radius:20px;background:rgba(30,41,51,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font:600 14px/1 var(--sans);letter-spacing:.08em;box-shadow:0 8px 22px rgba(14,20,26,.22);cursor:pointer;transform:translateX(-50%);transition:opacity .35s,transform .35s;animation:shIn .5s .9s both;-webkit-tap-highlight-color:transparent}
+.js .scrollhint[hidden]{display:none}
+.scrollhint svg{width:17px;height:17px;fill:none;stroke:var(--or);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;animation:shBob 1.6s ease-in-out infinite}
+.js .scrollhint.gone{opacity:0;transform:translate(-50%,16px);pointer-events:none}
+@keyframes shIn{from{opacity:0}to{opacity:1}}
+@keyframes shBob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
+@media(hover:hover){.js .scrollhint:hover{background:var(--ink)}}
+@media (prefers-reduced-motion:reduce){.js .scrollhint,.scrollhint svg{animation:none}}
+
 /* 淘片介绍页 · 上课版多出来的样式（其余都用 site.css）
    新加的只有四样：第一屏的短片、讲难处那一屏、相册开头的三张贴纸、同学专享。 */
 
@@ -571,6 +582,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
     </div>
   </div>
 </section>
+<!-- 第一屏底部的“往下滑”提示：滑一下就收起（样式和脚本在 site.css、site.js 末尾） -->
+<button type="button" class="scrollhint" id="scrollhint" aria-label="往下滑，看更多"><span>往下滑</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 4.5 8 9l4.5-4.5M3.5 8.5 8 13l4.5-4.5"/></svg></button>
 
 <!-- 短片：38 秒看个大概（播放块的样式和脚本在 class.css、class.js，和上课版共用） -->
 <section class="sec filmsec" id="film-sec">
@@ -585,7 +598,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
         <div class="film-box st">
           <video id="vid" controls playsinline webkit-playsinline x5-playsinline preload="none" poster="https://636c-cloud1-d8g4kl7i9ec4c6ba5-1504385938.tcb.qcloud.la/taopian-web/assets/img/main-poster.jpg" width="720" height="1280" aria-label="淘片 38 秒短片">
             <!-- 先从国内加速的地址播；那边打不开，浏览器自动换下一条（放在 GitHub 的轻量版） -->
-            <source src="https://636c-cloud1-d8g4kl7i9ec4c6ba5-1504385938.tcb.qcloud.la/taopian-main.mp4" type="video/mp4">
+            <source src="https://636c-cloud1-d8g4kl7i9ec4c6ba5-1504385938.tcb.qcloud.la/taopian-main-v2.mp4" type="video/mp4">
             <source src="../assets/video/main.mp4" type="video/mp4">
           </video>
           <button type="button" class="film-play" id="play" aria-label="播放 38 秒短片"><span class="anchor" id="a-play" data-shape="circle"><em></em></span></button>
@@ -1227,6 +1240,20 @@ window.TEXT={
       });
     }, { threshold: 0.55 }).observe(box);
   })();
+})();
+
+/* 第一屏底部的“往下滑”提示：滑一下就收起，不再出来；点它往下翻大半屏 */
+(function () {
+  var el = document.getElementById('scrollhint'); if (!el) return;
+  var R = document.documentElement;
+  function y() { return window.pageYOffset || R.scrollTop || 0; }
+  if (y() > 24 || R.scrollHeight <= window.innerHeight + 40) { el.hidden = true; return; }
+  function on() { if (y() > 24) { el.classList.add('gone'); window.removeEventListener('scroll', on); setTimeout(function () { el.hidden = true; }, 450); } }
+  window.addEventListener('scroll', on, { passive: true });
+  el.addEventListener('click', function () {
+    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollBy({ top: Math.round(window.innerHeight * 0.8), behavior: rm ? 'auto' : 'smooth' });
+  });
 })();
 </script>
 <script>

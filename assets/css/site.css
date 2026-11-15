@@ -394,3 +394,14 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .js .steps{display:none}
   .js .scene-box{height:400px;margin-top:20px}
 }
+
+/* 第一屏底部的“往下滑”提示：一滑就收起，不再出来；系统开了减弱动态效果就不跳 */
+.scrollhint{display:none}
+.js .scrollhint{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:6px;height:40px;padding:0 13px 0 17px;border:0;border-radius:20px;background:rgba(30,41,51,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font:600 14px/1 var(--sans);letter-spacing:.08em;box-shadow:0 8px 22px rgba(14,20,26,.22);cursor:pointer;transform:translateX(-50%);transition:opacity .35s,transform .35s;animation:shIn .5s .9s both;-webkit-tap-highlight-color:transparent}
+.js .scrollhint[hidden]{display:none}
+.scrollhint svg{width:17px;height:17px;fill:none;stroke:var(--or);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;animation:shBob 1.6s ease-in-out infinite}
+.js .scrollhint.gone{opacity:0;transform:translate(-50%,16px);pointer-events:none}
+@keyframes shIn{from{opacity:0}to{opacity:1}}
+@keyframes shBob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
+@media(hover:hover){.js .scrollhint:hover{background:var(--ink)}}
+@media (prefers-reduced-motion:reduce){.js .scrollhint,.scrollhint svg{animation:none}}
